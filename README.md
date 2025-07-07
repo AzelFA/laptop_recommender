@@ -366,7 +366,6 @@ Model **content-based filtering** menggunakan cosine similarity terbukti efektif
 #### 3. Solusi Statement
 - Normalisasi data teks pada kolom prosesor, storage, dan OS berhasil memperjelas kategori fitur dan meningkatkan kualitas rekomendasi.
 - Pendekatan ini terbukti efektif dalam mengukur kesamaan antar item, sehingga sistem dapat merekomendasikan produk-produk dengan kemiripan tinggi.
-- Sistem ini siap diintegrasikan ke platform digital yang membutuhkan rekomendasi produk berbasis spesifikasi, seperti e-commerce atau aplikasi konsultasi pembelian.
 
 ### Saran
 - Pemberian bobot pada fitur penting: Untuk meningkatkan relevansi, fitur seperti prosesor dan RAM sebaiknya diberikan bobot lebih besar saat menghitung similarity.
@@ -379,7 +378,5 @@ Dengan perbaikan ini, sistem akan memberikan rekomendasi yang tidak hanya mirip 
 ## Daftar Pustaka
 
 1. R. Oktavian and F. Amin, "Perancangan Sistem Rekomendasi Laptop dengan Model Prototyping dan Penerapan Content‑Based Filtering Approach pada ELS Computer Shop Semarang," *G‑Tech: Jurnal Teknologi Terapan*, vol. 8, no. 1, pp. 66–80, Jan. 2024. DOI: 10.33379/gtech.v8i1.3490.
-
 2. I. Rojabi, I. Saifudin, and G. Wijaya, "Sistem Rekomendasi Pemilihan Laptop Menggunakan Metode Content Based Filtering Dan K‑Nearest Neighbor," *Jurnal Mahasiswa Teknik Informatika (JATI)*, vol. 6, no. 2, 2024.
-
 3. A. E. Wijaya and D. Alfian, "Sistem Rekomendasi Laptop Menggunakan Collaborative Filtering Dan Content‑Based Filtering," *Jurnal Computech & Bisnis*, vol. 12, no. 1, pp. 11–27, 2018.
