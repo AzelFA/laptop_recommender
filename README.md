@@ -244,16 +244,15 @@ Tahap ini dilakukan untuk mempersiapkan data mentah menjadi bentuk yang siap dig
 ### 1. Pembersihan Kolom yang Tidak Dibutuhkan
 Kolom `Unnamed: 0` dihapus karena merupakan hasil auto-index dari file CSV dan `ImgURL` karena merupakan link gambar. Keduanya tidak memberikan informasi analitis yang berguna.
 
-### 2. Penanganan Nilai Kosong (Missing Values)
-Dataset awal memiliki nilai kosong pada beberapa kolom seperti `Price`, `MRP`, `Rating`, `Processor`, `OpSys`, dan `Memory`. Strategi yang digunakan antara lain:
-- Menghapus baris dengan nilai kosong pada kolom-kolom yang bersifat penting seperti `Price`, `Processor`, dan `RAM`.
-- Mengisi nilai kosong untuk beberapa kolom kategori menggunakan label `Other` atau mode (nilai paling sering muncul), seperti pada `OS_Simplified` dan `Storage_Type`.
+### 2. Handling Outlier
+- Pada kolom `Size`, mayoritas laptop memiliki ukuran layar antara 36 hingga 40 inci. Namun, terdapat nilai maksimum sebesar 103 inci, yang sangat tidak realistis untuk ukuran layar laptop dan kemungkinan besar adalah outlier atau kesalahan input. Maka, buang entri dengan ukuran layar di atas 50 inci sebagai outlier (karena laptop umumnya tidak lebih dari 20 inci).
 
 ### 3. Normalisasi dan Transformasi Fitur
 Beberapa kolom diubah atau diproses lebih lanjut:
 - **Processor** diparsing menjadi kolom baru `Processor_Short` untuk menyederhanakan jenis prosesor (contoh: “Intel Core i5”, “AMD Ryzen 7”).
 - **Memory** dipisahkan menjadi dua fitur baru: `Storage_Size` dan `Storage_Type`.
-- **OpSys** disederhanakan menjadi `OS_Simplified` agar lebih konsisten, misalnya “Windows 11”, “DOS”, “macOS”, dll.
+- **OpSys** disederhanakan menjadi `OS_Simplified` agar lebih konsisten, misalnya “Windows 11”, “DOS”, "Windows 10", dll.
+- Menghapus baris yang memiliki nilai **Other** dalam fitur `Memory`, `Storage_Type`, dan `OS_Simplified` karena tidak terlalu membantu dalam pemilihan spesifikasi laptop.
 
 ### 4. Konversi Harga dari Rupee ke IDR
 Karena data harga (`Price`, `MRP`) masih dalam satuan Rupee (₹), dilakukan konversi ke Rupiah (Rp) menggunakan kurs tetap:
