@@ -19,7 +19,7 @@ Data dieksplorasi untuk mengetahui struktur, tipe fitur, nilai ekstrem, serta di
 
 #### 2. Pembersihan dan Persiapan Data (Data Preparation)
 Tahapan ini mencakup:
-- Pembersihan data dilakukan dengan menghapus nilai null, mendeteksi duplikasi, serta menormalkan penulisan entri seperti prosesor dan RAM.
+- Pembersihan data dilakukan dengan mendeteksi duplikasi dan nilai null, serta menormalkan penulisan entri seperti prosesor dan RAM.
 - Fitur seperti merek, prosesor, RAM, dan penyimpanan diubah menjadi representasi numerik agar bisa dihitung kemiripannya.
 - Encoding fitur kategorikal agar dapat diterima oleh model
 - Normalisasi dan transformasi fitur jika diperlukan
