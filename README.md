@@ -291,67 +291,88 @@ Pengguna dapat memasukkan preferensi seperti:
 
 Sistem akan mencocokkan preferensi ini terhadap dataset dan mencari 5 laptop teratas yang paling mirip berdasarkan nilai cosine similarity.
 
-![function rec](https://github.com/user-attachments/assets/fad8eae2-ed0a-4b9f-898e-2e3e26b5ca49)
-
+![function rec](https://github.com/user-attachments/assets/210123a2-a3eb-4872-9566-bd1552417843)
 
 Gambar 11. Fungsi Sistem Rekomendasi
 
 Output dari sistem ini akan menampilkan 5 rekomendasi laptop paling relevan berdasarkan parameter tersebut, lengkap dengan skor similarity-nya.
 
 ### Hasil Rekomendasi 
-Berikut adalah hasil rekomendasi ketika pengguna mencari laptop ASUS, Intel Core i7, RAM 16GB, SSD, Windows 11, dan harga antara 10 juta hingga 20 juta rupiah:
+Berikut adalah hasil rekomendasi ketika pengguna mencari laptop ASUS, Intel Core i7, RAM 16GB, SSD, Windows 11, dan harga antara 19 juta hingga 35 juta rupiah:
 
 | Index | Company | Processor                     | RAM | Memory       | OS_Simplified | Price     | Similarity |
 |-------|---------|-------------------------------|-----|--------------|----------------|-----------|------------|
-| 32    | ASUS    | AMD Ryzen 5 Hexa Core Processor | 16  | 512 GB SSD   | Windows 11     | 10,771,110 | 1.0        |
-| 328   | ASUS    | AMD Ryzen 5 Hexa Core Processor | 16  | 512 GB SSD   | Windows 11     | 10,393,110 | 1.0        |
-| 576   | ASUS    | AMD Ryzen 5 Hexa Core Processor | 16  | 512 GB SSD   | Windows 11     | 10,393,110 | 1.0        |
-| 525   | ASUS    | AMD Ryzen 5 Hexa Core Processor | 16  | 512 GB SSD   | Windows 11     | 10,393,110 | 1.0        |
-| 376   | ASUS    | AMD Ryzen 5 Hexa Core Processor | 16  | 512 GB SSD   | Windows 11     | 10,393,110 | 1.0        |
+| 436    | ASUS    | Intel Core i7 Processor (12th Gen) | 16  | 1 TB SSD   | Windows 11     | 26,458,110 | 1.0        |
+| 874   | ASUS    | AMD Ryzen 9 Octa Core Processor | 16  | 1 TB SSD   | Windows 11     | 28,537,110 | 1.0        |
+| 221   | GIGABYTE    | Intel Core i7 Processor (12th Gen) | 16  | 1 TB SSD   | Windows 11     | 28,348,110 | 1.0        |
+| 218   | ASUS    | AMD Ryzen 7 Octa Core Processor | 16  | 1 TB SSD   | Windows 11     | 27,781,110 | 1.0        |
+| 612   | ASUS    | Intel Core i7 Processor (12th Gen) | 16  | 1 TB SSD   | Windows 11     | 27,200,502 | 1.0        |
 
 Tabel 2. Hasil Rekomendasi
 
 ---
 
 ## Evaluation
-Untuk mengevaluasi sistem rekomendasi laptop yang dibangun, digunakan pendekatan berbasis similarity score yang dihitung menggunakan cosine similarity. Evaluasi ini berfokus pada seberapa relevan hasil rekomendasi terhadap input pengguna berdasarkan fitur-fitur seperti merk, processor, RAM, jenis storage, sistem operasi, dan rentang harga.
+Untuk mengevaluasi performa sistem rekomendasi content-based filtering, digunakan metrik Precision@K dan Recall@K, yang mengukur proporsi item relevan dalam daftar rekomendasi teratas sebanyak K item.
 
-### Metrik Evaluasi
-Metrik yang digunakan dalam sistem ini adalah cosine similarity, yang mengukur kesamaan antara dua vektor fitur. Nilai cosine similarity berkisar antara 0 hingga 1, di mana nilai mendekati 1 menunjukkan tingkat kemiripan yang sangat tinggi.
+**Rumus Precision@K:**
+> **Precision@K = (jumlah item relevan dalam top-K) ÷ K**
 
-![rumus consine](https://github.com/user-attachments/assets/9d622a1f-264d-4a02-aa11-27f2e6ba73c2)
+**Rumus Recall@K:**
+> **Recall@K = (jumlah item relevan dalam top-k) ÷ (jumlah item relevan yang tersedia)**
 
-Gambar 12. Rumus Cosine Similarity
-
-Dalam sistem ini, semakin tinggi skor similarity, maka semakin relevan hasil rekomendasi terhadap preferensi pengguna.
-
-### Hasil Evaluasi
+### Evaluasi saat ini
 Berikut adalah hasil rekomendasi berdasarkan query dengan kriteria:
 - Brand: ASUS
 - Processor: AMD Ryzen 5 Hexa Core Processor
 - RAM: 16 GB
 - Storage: SSD
 - OS: Windows 11
-- Price range: IDR 10.000.000 – IDR 20.000.000
+- Price range: IDR 19.000.000 – IDR 35.000.000
 
-Hasil menunjukkan bahwa semua rekomendasi memiliki similarity score sebesar 1.0, yang menandakan bahwa sistem berhasil menemukan laptop yang sangat mirip dengan preferensi pengguna.
+Berdasarkan tabel 2, penilaian relevansi terlihat sebagai berikut:
 
-### Visualisasi
-Untuk memberikan gambaran lebih lanjut tentang performa sistem, berikut visualisasi nilai similarity untuk 5 rekomendasi teratas:
+#### Penilaian Relevansi (berdasarkan Processor = Intel Core i7):
+- Index 436: Relevan
+- Index 874: Tidak relevan (AMD Ryzen 9)
+- Index 221: Relevan
+- Index 218: Tidak relevan (AMD Ryzen 7)
+- Index 612: Relevan
 
-![vis eval](https://github.com/user-attachments/assets/82c36486-d52b-4681-94e5-40e88c269848)
+#### Hasil
 
-Gambar 13. Visualisasi Cosine Similarity terhadap Rekomendasi
+![eval](https://github.com/user-attachments/assets/9e42e69a-99c5-4067-9de6-70ab9e22a005)
+
+Gambar 12. Metrik Evaluasi
+
+Nilai Precision@5 sebesar 0.6 mengindikasikan bahwa 60% dan nilai Recall@K sebesar 1.0 mengindikasikan 100% dari hasil rekomendasi termasuk laptop yang sesuai dengan prosesor yang diinginkan (Intel Core i7). Meskipun sistem berhasil memberikan rekomendasi yang sangat mirip berdasarkan fitur lain, masih ada ruang perbaikan terutama dalam penekanan fitur prosesor saat menghitung kemiripan.
 
 ---
 
 ## Kesimpulan
 
-Model **content-based filtering** menggunakan cosine similarity terbukti sangat efektif untuk memberikan rekomendasi laptop yang sesuai dengan kebutuhan pengguna. Seluruh hasil rekomendasi memiliki similarity score sebesar **1.0**, yang berarti sangat relevan dan identik dengan kriteria pencarian. Sistem ini dapat digunakan untuk meningkatkan pengalaman pengguna dalam memilih laptop, khususnya di platform e-commerce yang menawarkan ribuan pilihan produk. Efektivitasnya terlihat dari kemampuannya menyaring produk sesuai kebutuhan, sehingga mempermudah proses pengambilan keputusan.
+Model **content-based filtering** menggunakan cosine similarity terbukti efektif dalam memberikan rekomendasi laptop yang relevan berdasarkan fitur seperti brand, RAM, storage, sistem operasi, dan harga. Evaluasi menggunakan precision@5 menunjukkan bahwa 60% hasil rekomendasi benar-benar relevan dengan kriteria prosesor yang diminta, yaitu Intel Core i7.
 
 ### Kesimpulan Dampak Model Terhadap Business Understanding
 
-Sistem rekomendasi ini memberikan kontribusi signifikan terhadap peningkatan pengalaman pengguna dalam mencari laptop sesuai kebutuhan tanpa harus memahami aspek teknis secara mendalam. Dengan penyajian rekomendasi produk yang relevan, pengguna dapat membuat keputusan lebih cepat dan akurat, yang pada akhirnya berkontribusi pada peningkatan konversi penjualan di platform e-commerce. Selain itu, pendekatan berbasis fitur ini memungkinkan fleksibilitas integrasi ke berbagai platform digital serta dapat diskalakan untuk berbagai jenis produk lainnya. Dengan sistem ini, pemilik bisnis dapat mengurangi beban pengguna dalam proses pencarian dan meningkatkan loyalitas melalui pengalaman pencarian yang efisien dan personal.
+#### 1.Menjawab Problem Statements
+- Sistem ini berhasil merekomendasikan produk berdasarkan kombinasi fitur yang diberikan oleh pengguna, seperti brand, prosesor, RAM, storage, OS, dan harga.
+- Dengan menggunakan cosine similarity antar fitur, sistem memastikan bahwa produk yang direkomendasikan memiliki kesamaan tertinggi dengan input.
+
+#### 2. Mencapai Goals
+- Tujuan utama proyek ini berhasil dicapai dengan baik. Sistem mampu memberikan hasil yang sangat sesuai dengan kebutuhan pengguna.
+- Sistem ini mempersingkat waktu pencarian produk dan membantu pengguna membuat keputusan yang tepat berdasarkan fitur dan harga.
+
+#### 3. Solusi Statement
+- Normalisasi data teks pada kolom prosesor, storage, dan OS berhasil memperjelas kategori fitur dan meningkatkan kualitas rekomendasi.
+- Pendekatan ini terbukti efektif dalam mengukur kesamaan antar item, sehingga sistem dapat merekomendasikan produk-produk dengan kemiripan tinggi.
+- Sistem ini siap diintegrasikan ke platform digital yang membutuhkan rekomendasi produk berbasis spesifikasi, seperti e-commerce atau aplikasi konsultasi pembelian.
+
+### Saran
+- Pemberian bobot pada fitur penting: Untuk meningkatkan relevansi, fitur seperti prosesor dan RAM sebaiknya diberikan bobot lebih besar saat menghitung similarity.
+- Pre-filtering: Dapat dilakukan filter awal untuk hanya mencocokkan prosesor yang identik dengan input sebelum dilakukan perhitungan similarity.
+
+Dengan perbaikan ini, sistem akan memberikan rekomendasi yang tidak hanya mirip secara umum, tapi juga lebih tepat sasaran terhadap kebutuhan pengguna
 
 ---
 
