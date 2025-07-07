@@ -85,8 +85,7 @@ Oleh karena itu, dibutuhkan sebuah sistem cerdas yang mampu memberikan rekomenda
 
 Tabel 1. Informasi Dataset
 
-![data info](https://github.com/user-attachments/assets/99ab422f-f692-40f8-85a0-8b33762b59da)
-
+![data info](https://github.com/user-attachments/assets/ca3ed720-e0d1-45ed-8904-fca54aafc579)
 
 Dilihat dari _Tabel 1. Informasi Dataset_ dataset ini berisi informasi sebagai berikut ini : 
 - Dataset berupa CSV (Comma-Seperated Values).
@@ -110,7 +109,7 @@ Dilihat dari _Tabel 1. Informasi Dataset_ dataset ini berisi informasi sebagai b
 ### Pengecekan Data Duplikat dan Missing Value
 -	Data Duplikat
 
-![Data Duplikat](https://github.com/user-attachments/assets/9e166ea6-33d5-4cbc-b838-ee83b7b10b60)
+![data duplikat](https://github.com/user-attachments/assets/4b14d8e2-73de-4028-980f-ea76257fc5de)
 
 Gambar 1. Data Duplikat.
 
@@ -118,7 +117,7 @@ Pada gambar 1 tersebut, menjelaskan bahwa pada dataset tidak memiliki data dupli
 
 -	Missing Value
   
-![Missing Value](https://github.com/user-attachments/assets/d9506df0-7468-4555-ad9e-6f8154775519)
+![missing value](https://github.com/user-attachments/assets/cdee5cae-aec7-4528-b43a-4420f7046602)
 
 Gambar 2. Missing Value
 
@@ -126,7 +125,7 @@ Pada gambar tersebut, menjelaskan bahwa pada dataset tidak memiliki data missing
 
 ### Pengecekan Value Unik yang Ada Pada Dataset
 
-![Value Unik](https://github.com/user-attachments/assets/209cb64c-37e9-4e7d-a26d-e48f8162a84f)
+![value unik](https://github.com/user-attachments/assets/56baf833-7138-4c0e-8d93-0dedf6196ee4)
 
 Gambar 3. Value Unik
 
@@ -134,40 +133,28 @@ Berdasarkan gambar di atas, berikut adalah deskripsi singkat mengenai banyaknya 
 
 - **Unnamed: 0** (984 unique values)  
 Merupakan indeks baris dari dataset yang bersifat unik untuk setiap entri. Karena ini hanya penomoran, fitur ini tidak memiliki pengaruh analitis dan biasanya dihapus dalam tahap pra-pemrosesan.
-
 - **ImgURL** (532 unique values)  
 Berisi tautan gambar laptop. Banyaknya nilai unik menunjukkan bahwa sebagian besar laptop memiliki gambar masing-masing, namun fitur ini jarang digunakan dalam analisis model kecuali pada pemrosesan berbasis visual.
-
 - **MRP** (487 unique values)  
 Menunjukkan harga asli atau harga maksimum ritel dari laptop. Variasi yang cukup tinggi menunjukkan bahwa harga awal sebelum diskon sangat beragam di pasaran.
-
 - **Price** (393 unique values)  
 Merupakan harga akhir atau harga diskon dari laptop. Meski sedikit lebih rendah variasinya dibanding MRP, nilai ini tetap cukup beragam dan relevan untuk fitur target atau filter harga.
-
 - **No_of_ratings** (248 unique values)  
 Mencerminkan jumlah orang yang memberikan rating terhadap laptop. Nilai ini sangat bervariasi dan bisa menjadi indikator popularitas suatu produk.
-
 - **Review** (136 unique values)  
 Jumlah review teks untuk setiap produk. Meski tidak menjelaskan isi review, variasinya bisa mengindikasikan tingkat ketertarikan pengguna.
-
 - **Processor** (87 unique values)  
 Menunjukkan tipe dan varian prosesor. Jumlah nilai unik yang tinggi mencerminkan keragaman performa dan teknologi pada laptop.
-
 - **OpSys** (40 unique values)  
 Berisi informasi sistem operasi. Adanya 40 jenis berbeda mengindikasikan banyaknya kombinasi versi OS dan arsitektur yang digunakan.
-
 - **Memory** (37 unique values)  
 Deskripsi penyimpanan yang mencakup ukuran dan tipe (SSD/HDD). Nilai unik yang tinggi menandakan variasi besar pada konfigurasi penyimpanan.
-
 - **Company** (19 unique values)  
 Merek produsen laptop. Terdiri dari 19 brand berbeda yang menunjukkan keberagaman produsen di pasar.
-
 - **Rating** (19 unique values)  
 Nilai rating laptop dalam skala 1–5. Jumlah nilai unik yang kecil menunjukkan rating dibulatkan, biasanya satu atau dua digit desimal.
-
 - **Size** (16 unique values)  
 Ukuran layar dalam inci. Variasi ini mencerminkan preferensi layar yang berbeda, dari laptop kecil hingga besar.
-
 - **RAM** (4 unique values)  
 Kapasitas RAM dalam GB. Hanya memiliki 4 nilai unik, biasanya 4GB, 8GB, 16GB, dan 32GB, yang umum ditemukan pada laptop modern.
 
@@ -175,7 +162,7 @@ Kapasitas RAM dalam GB. Hanya memiliki 4 nilai unik, biasanya 4GB, 8GB, 16GB, da
 
 ### EDA - Univariate Analysis
 
-![EDA Describe Data](https://github.com/user-attachments/assets/1fb877bd-18b8-499b-8db8-962e233df494)
+![EDA Describe Data](https://github.com/user-attachments/assets/1ddce1e0-df3b-45f1-a524-9f1ad4829a0c)
 
 Gambar 4. Penjelasan Dataset
 
@@ -188,7 +175,7 @@ Gambar 4 merupakan penjelasan mengenai dataset yang digunakan
 - **Kolom `Price`** mencatat harga jual saat ini dari laptop, dengan nilai rata-rata sebesar 82.145 dan kisaran harga dari 16.990 hingga 399.990, menunjukkan adanya produk dari berbagai segmen harga mulai dari murah hingga premium.
 - **Kolom `MRP`** atau harga eceran maksimum menunjukkan harga sebelum diskon atau promosi, dengan rata-rata sebesar 100.740 dan nilai maksimum mencapai 467.990, yang memperlihatkan adanya perbedaan harga signifikan dan kemungkinan strategi pemasaran berupa diskon besar.
 
-![num hist](https://github.com/user-attachments/assets/0e4715fd-3a50-4b48-b11d-1af6c936151f)
+![num hist](https://github.com/user-attachments/assets/9a6fe8c1-add5-40fc-a4ff-278fb616108b)
 
 Gambar 5. Histogram Kolom Numerik
 
@@ -199,7 +186,7 @@ Pada gambar 5, terilhat grafik histogram masing-masing kolom numerik.
 - **`RAM`**: Distribusi bimodal yang jelas—terutama pada RAM 8GB dan 16GB—menunjukkan dua kelompok besar segmentasi pasar.
 - **`Price`** dan **`MRP`**: Menunjukkan distribusi miring ke kanan (_right-skewed_), dengan sebagian besar laptop memiliki harga di bawah 150.000, namun terdapat sejumlah produk premium dengan harga sangat tinggi sebagai outlier.
 
-![cat hist](https://github.com/user-attachments/assets/0e4715fd-3a50-4b48-b11d-1af6c936151f)
+![cat hist](https://github.com/user-attachments/assets/316471f7-0ac3-4966-a621-fd347b46f849)
 
 Gambar 6. Histogram Kolom Kategorikal
 
@@ -211,7 +198,7 @@ Pada gambar 6, terilhat grafik histogram masing-masing kolom kategorikal.
 
 ### EDA - Multivariate Analysis
 
-![Gambar Corrmap](https://github.com/user-attachments/assets/ee986052-5724-4fb6-be36-063274aed226)
+![heatmap corr](https://github.com/user-attachments/assets/2684ffc3-16c5-4be6-a7e9-0626e06073cd)
 
 Gambar 7. Heatmap Korelasi
 
@@ -220,7 +207,7 @@ Heatmap pada gambar 7 ini menggambarkan korelasi antar fitur. Temuan utama:
 - `No_of_ratings` dan `Review` juga memiliki korelasi yang cukup tinggi, menandakan bahwa semakin banyak pengguna yang memberikan rating, maka kemungkinan besar review teks juga meningkat.
 - Variabel seperti `RAM`, `Size`, dan `Rating` memiliki korelasi yang rendah terhadap harga (Price), yang artinya spesifikasi ini tidak secara langsung menentukan harga laptop dalam dataset ini, atau ada variabel lain yang lebih dominan (seperti merek atau fitur tambahan).
 
-![Price - RAM](https://github.com/user-attachments/assets/6cbaa169-46e5-4927-831a-1c887159f719)
+![Price - RAM](https://github.com/user-attachments/assets/047359cd-feed-4ae9-a378-7b3f54f2b683)
 
 Gambar 8. Scatter Plot antara RAM dan Price (Harga)
 
@@ -229,7 +216,7 @@ Gambar 8 menunjukkan distribusi harga kendaraan berdasarkan RAM (`RAM`) dan harg
 - Terjadi tumpukan harga yang cukup tinggi pada RAM 8GB dan 16GB, yang memang merupakan konfigurasi paling umum di pasar.
 - Beberapa laptop dengan RAM tinggi (32GB) berada di kisaran harga premium, namun masih ada juga laptop dengan RAM besar namun harga relatif lebih terjangkau, kemungkinan karena spesifikasi lain yang lebih rendah (seperti prosesor atau storage).
 
-![Rat - Price](https://github.com/user-attachments/assets/5053b55e-995d-43fd-972d-cfe82899eb3a)
+![rat - price](https://github.com/user-attachments/assets/37267f78-6b03-4177-9f99-501bfabec42a)
 
 Gambar 9. Scatter Plot antara Rating dan Price
 
@@ -238,7 +225,7 @@ Gambar 9 menunjukkan hubungan antara `Rating` (skor rating) dan `price` (harga).
 - Laptop dengan harga tinggi tidak selalu memiliki rating yang tinggi, begitu juga sebaliknya. Beberapa laptop dengan harga relatif rendah justru mendapat rating tinggi dari pengguna.
 - Distribusi rating sangat padat di kisaran 4.0 hingga 4.5, mencerminkan bahwa mayoritas laptop dinilai cukup baik oleh pengguna terlepas dari harganya.
 
-![Rat - Price](https://github.com/user-attachments/assets/5053b55e-995d-43fd-972d-cfe82899eb3a)
+![price - comp](https://github.com/user-attachments/assets/5cebe99b-cf9e-4937-9a71-603b2b7f0309)
 
 Gambar 10. Boxplot distribusi harga (Price) laptop berdasarkan Company
 
@@ -305,7 +292,8 @@ Pengguna dapat memasukkan preferensi seperti:
 
 Sistem akan mencocokkan preferensi ini terhadap dataset dan mencari 5 laptop teratas yang paling mirip berdasarkan nilai cosine similarity.
 
-![function rekomen](https://github.com/user-attachments/assets/5053b55e-995d-43fd-972d-cfe82899eb3a)
+![function rec](https://github.com/user-attachments/assets/fad8eae2-ed0a-4b9f-898e-2e3e26b5ca49)
+
 
 Gambar 11. Fungsi Sistem Rekomendasi
 
@@ -332,7 +320,7 @@ Untuk mengevaluasi sistem rekomendasi laptop yang dibangun, digunakan pendekatan
 ### Metrik Evaluasi
 Metrik yang digunakan dalam sistem ini adalah cosine similarity, yang mengukur kesamaan antara dua vektor fitur. Nilai cosine similarity berkisar antara 0 hingga 1, di mana nilai mendekati 1 menunjukkan tingkat kemiripan yang sangat tinggi.
 
-![rumus cosine](https://github.com/user-attachments/assets/5053b55e-995d-43fd-972d-cfe82899eb3a)
+![rumus consine](https://github.com/user-attachments/assets/9d622a1f-264d-4a02-aa11-27f2e6ba73c2)
 
 Gambar 12. Rumus Cosine Similarity
 
@@ -352,7 +340,7 @@ Hasil menunjukkan bahwa semua rekomendasi memiliki similarity score sebesar 1.0,
 ### Visualisasi
 Untuk memberikan gambaran lebih lanjut tentang performa sistem, berikut visualisasi nilai similarity untuk 5 rekomendasi teratas:
 
-![visualisasi eva](https://github.com/user-attachments/assets/5053b55e-995d-43fd-972d-cfe82899eb3a)
+![vis eval](https://github.com/user-attachments/assets/82c36486-d52b-4681-94e5-40e88c269848)
 
 Gambar 13. Visualisasi Cosine Similarity terhadap Rekomendasi
 
